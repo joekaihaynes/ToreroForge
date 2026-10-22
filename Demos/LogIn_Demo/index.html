@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToreroForge | Login</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+
+
+<body>
+    <main class="page-background">
+        <section class="login-container">
+
+            <header class="branding">
+                <div class="logo-circle">
+                    <img src="./usd-logo-stacked.png" alt="University of San Diego Logo">
+                </div>
+                <h1>ToreroForge</h1>
+                <p>University of San Diego</p>
+                <p class="tagline">Connect. Collaborate. Create.</p>
+            </header>
+
+            <!-- LOGIN -->
+            <form id="login-form" class="screen">
+                <h2>Login</h2>
+
+                <label for="login-email">Email</label>
+                <input id="login-email" type="email" placeholder="Enter your USD email" required>
+
+                <label for="login-password">Password</label>
+                <div class="password-container">
+                    <input id="login-password" type="password" placeholder="Enter your password" required>
+                    <button type="button" class="show-password" data-target="login-password">Show</button>
+                </div>
+
+                <button class="main-button" type="submit">LOGIN</button>
+
+                <div class="links">
+                    <button type="button" data-page="register">
+                        Register / Create Account
+                    </button>
+                    <button type="button" data-page="forgot">
+                        Forgot Password?
+                    </button>
+                </div>
+            </form>
+
+            <!-- REGISTRATION -->
+            <form id="register-form" class="screen hidden">
+                <h2>Create Account</h2>
+
+                <label for="register-username">Username</label>
+                <input id="register-username" type="text" placeholder="Choose a username" required>
+
+                <label for="register-email">USD Email</label>
+                <input id="register-email" type="email" placeholder="example@sandiego.edu" required>
+
+                <label for="register-password">Password</label>
+                <input id="register-password" type="password" placeholder="Create a password" required>
+
+                <label for="register-confirm">Confirm Password</label>
+                <input id="register-confirm" type="password" placeholder="Confirm your password" required>
+
+                <button class="main-button" type="submit">REGISTER</button>
+
+                <div class="links">
+                    <button type="button" data-page="login">
+                        Already have an account? Login
+                    </button>
+                </div>
+            </form>
+
+            <!-- FORGOT PASSWORD -->
+            <form id="forgot-form" class="screen hidden">
+                <h2>Forgot Password</h2>
+                <p class="description">
+                    Enter your email address to request a password reset.
+                </p>
+
+                <label for="forgot-email">Email</label>
+                <input id="forgot-email" type="email" placeholder="Enter your USD email" required>
+
+                <button class="main-button" type="submit">
+                    RESET PASSWORD
+                </button>
+
+                <div class="links">
+                    <button type="button" data-page="login">
+                        Back to Login
+                    </button>
+                </div>
+            </form>
+
+            <!-- DEMO DASHBOARD -->
+            <section id="dashboard" class="screen hidden">
+                <h2>Welcome to ToreroForge!</h2>
+                <p class="description center">
+                    Your campus collaboration network.
+                </p>
+
+                <div class="dashboard-card">
+                    <h3>Project Feed</h3>
+                    <p>Discover student projects and opportunities.</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>My Profile</h3>
+                    <p>Showcase your skills and interests.</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>STEM Resources</h3>
+                    <p>Explore campus labs and workspaces.</p>
+                </div>
+
+                <button class="main-button" type="button" data-page="login">LOG OUT</button>
+            </section>
+
+            <p id="message" class="message hidden" role="status"></p>
+
+            <footer class="footer">
+                <p>ToreroForge | Senior Capstone Project</p>
+                <p>University of San Diego</p>
+            </footer>
+
+        </section>
+    </main>
+</body>
+
+</html>
