@@ -30,3 +30,39 @@ async function loadStudents() {
 }
 
 loadStudents();
+
+
+document.getElementById("student-form")
+    .addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const name = document
+            .getElementById("student-name")
+            .value.trim();
+
+        const major = document
+            .getElementById("student-major")
+            .value.trim();
+
+        const message = document.getElementById("message");
+
+        if (!name || !major) {
+            message.textContent = "Please fill out both fields.";
+            return;
+        }
+
+        const { error } = await db
+            .from("students")
+            .insert([{ name, major }]);
+
+        if (error) {
+            message.textContent = "Error: " + error.message;
+            return;
+        }
+
+        message.textContent = "Student added successfully!";
+
+        document.getElementById("student-form").reset();
+
+        loadStudents();
+    });

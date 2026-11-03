@@ -7,8 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Student Database</h1>
-    <p>Students retrieved from Supabase:</p>
+    
+<h1>Student Database</h1>
+
+<h2>Add a Student</h2>
+
+<form id="student-form">
+    <input
+        type="text"
+        id="student-name"
+        placeholder="Student Name"
+        required
+    >
+
+    <input
+        type="text"
+        id="student-major"
+        placeholder="Major"
+        required
+    >
+
+    <button type="submit">Add Student</button>
+</form>
+
+<p id="message"></p>
+
+<h2>Students in Database</h2>
+
 
     <div id="students">Loading students...</div>
 
