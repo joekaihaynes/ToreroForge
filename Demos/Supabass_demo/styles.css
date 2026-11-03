@@ -30,3 +30,11 @@ h1 {
 .student button:hover {
     background-color: #3676a8;
 }
+.student .delete-button {
+    background-color: #c0392b;
+    margin-left: 10px;
+}
+
+.student .delete-button:hover {
+    background-color: #922b21;
+}

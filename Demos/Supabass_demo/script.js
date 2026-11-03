@@ -36,8 +36,17 @@ async function loadStudents() {
             editStudent(student);
         });
 
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "delete-button";
+
+        deleteButton.addEventListener("click", () => {
+            deleteStudent(student);
+        });
+
         div.appendChild(info);
         div.appendChild(editButton);
+        div.appendChild(deleteButton);
         container.appendChild(div);
     });
 }
@@ -110,5 +119,33 @@ async function editStudent(student) {
     }
 
     alert("Student updated successfully!");
+    loadStudents();
+}
+
+
+async function deleteStudent(student) {
+    const confirmed = confirm(
+        `Are you sure you want to delete ${student.name}?`
+    );
+
+    if (!confirmed) return;
+
+    const { data, error } = await db
+        .from("students")
+        .delete()
+        .eq("id", student.id)
+        .select("id");
+
+    if (error) {
+        alert("Error deleting student: " + error.message);
+        return;
+    }
+
+    if (data.length === 0) {
+        alert("No student was deleted.");
+        return;
+    }
+
+    alert("Student deleted successfully!");
     loadStudents();
 }
