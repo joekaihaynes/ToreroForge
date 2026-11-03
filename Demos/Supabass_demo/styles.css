@@ -17,3 +17,16 @@ h1 {
     border-radius: 8px;
     box-shadow: 0 2px 6px #00000015;
 }
+
+.student button {
+    background-color: #234b70;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.student button:hover {
+    background-color: #3676a8;
+}

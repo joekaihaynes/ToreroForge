@@ -6,6 +6,7 @@ const db = supabase.createClient(
     SUPABASE_KEY
 );
 
+
 async function loadStudents() {
     const container = document.getElementById("students");
 
@@ -24,10 +25,23 @@ async function loadStudents() {
     data.forEach(student => {
         const div = document.createElement("div");
         div.className = "student";
-        div.textContent = `${student.name} - ${student.major}`;
+
+        const info = document.createElement("p");
+        info.textContent = `${student.name} - ${student.major}`;
+
+        const editButton = document.createElement("button");
+        editButton.textContent = "Edit";
+
+        editButton.addEventListener("click", () => {
+            editStudent(student);
+        });
+
+        div.appendChild(info);
+        div.appendChild(editButton);
         container.appendChild(div);
     });
 }
+
 
 loadStudents();
 
@@ -66,3 +80,35 @@ document.getElementById("student-form")
 
         loadStudents();
     });
+
+
+async function editStudent(student) {
+    const newName = prompt("Enter new name:", student.name);
+
+    if (newName === null) return;
+
+    const newMajor = prompt("Enter new major:", student.major);
+
+    if (newMajor === null) return;
+
+    if (!newName.trim() || !newMajor.trim()) {
+        alert("Name and major cannot be empty.");
+        return;
+    }
+
+    const { error } = await db
+        .from("students")
+        .update({
+            name: newName.trim(),
+            major: newMajor.trim()
+        })
+        .eq("id", student.id);
+
+    if (error) {
+        alert("Error updating student: " + error.message);
+        return;
+    }
+
+    alert("Student updated successfully!");
+    loadStudents();
+}
