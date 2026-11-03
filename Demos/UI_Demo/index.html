@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ToreroForge | Build Together</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" data-page="feed"><span class="brand-mark">TF</span> Torero<span class="accent">Forge</span></button>
+    <input id="search" type="search" placeholder="Search projects, skills, competitions..." aria-label="Search projects">
+    <button class="primary" data-create="project">＋ Create Project</button>
+    <button class="avatar" data-profile="me" title="My profile">JD</button>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <small>DISCOVER</small>
+      <button class="nav active" data-page="feed">⌂ &nbsp; Project Feed</button>
+      <button class="nav" data-page="competitions">🏆 &nbsp; Competitions</button>
+      <button class="nav" data-page="workshops">🎓 &nbsp; Workshops</button>
+      <button class="nav" data-page="resources">▦ &nbsp; Campus Resources</button>
+      <small>YOUR SPACE</small>
+      <button class="nav" data-page="teams">♟ &nbsp; My Teams</button>
+      <button class="nav" data-page="applications">✉ &nbsp; Applications <span id="pending-count"></span></button>
+      <button class="nav" data-profile="me">♙ &nbsp; My Profile</button>
+      <button class="nav" data-page="saved">☆ &nbsp; Saved Projects</button>
+      <div class="sidebar-bottom">Built for USD students<br>ToreroForge · Prototype</div>
+    </aside>
+    <main id="main" class="main"></main>
+    <aside class="rightbar">
+      <div class="side-card"><h3>Welcome to ToreroForge 👋</h3><p>Find collaborators, launch projects, learn new skills, and compete together.</p><button class="primary full" data-create="project">＋ Share an idea</button></div>
+      <div class="side-card"><h3>Trending skills</h3><div class="chips"><button class="chip" data-skill="React">React</button><button class="chip" data-skill="Python">Python</button><button class="chip" data-skill="UI/UX">UI/UX</button><button class="chip" data-skill="CAD">CAD</button></div></div>
+      <div class="side-card"><h3>🏆 Competitions</h3><p>Explore challenges and see which teams are participating.</p><button class="link" data-page="competitions">Browse competitions →</button></div>
+      <div class="side-card"><h3>🎓 Student workshops</h3><p>Learn a skill or volunteer to teach your peers.</p><button class="link" data-page="workshops">Explore workshops →</button></div>
+    </aside>
+  </div>
+  <div id="modal" class="overlay hidden" role="presentation"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="dialog-head"><h2 id="modal-title">Create</h2><button class="icon-btn" id="close-modal" aria-label="Close">×</button></div><div id="modal-body"></div></div></div>
+  <div id="toast" class="toast hidden" role="status"></div>
+</body>
+</html>
