@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supabase Student Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<h1>Student Database</h1>
+
+<h2>Add a Student</h2>
+
+<form id="student-form">
+    <input
+        type="text"
+        id="student-name"
+        placeholder="Student Name"
+        required
+    >
+
+    <input
+        type="text"
+        id="student-major"
+        placeholder="Major"
+        required
+    >
+
+    <button type="submit">Add Student</button>
+</form>
+
+<p id="message"></p>
+
+<h2>Students in Database</h2>
+
+
+    <div id="students">Loading students...</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
